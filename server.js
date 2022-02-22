@@ -4,7 +4,7 @@ const app = express();
 
 const cors = require('cors');
 
-app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 204
+app.use(cors({ optionsSuccessStatus: 200 }));
 
 app.use(express.static('public'));
 
@@ -12,8 +12,11 @@ app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/views/index.html`);
 });
 
-app.get('/api/hello', (req, res) => {
-  res.json({ greeting: 'hello API' });
+app.get('/api/whoami', (req, res) => {
+  const ipaddress = req.ip;
+  res.status(200).json({ ipaddress });
 });
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3000);
+
+module.exports = app;
