@@ -41,5 +41,12 @@ describe('/GET /api/whoami', () => {
       });
   });
 
-  it('should return the ')
+  it('should return the software details from the request header', (done) => {
+    chai.request(server)
+      .get('/api/whoami')
+      .end((err, res) => {
+        res.body.should.have.property('software');
+        done();
+      });
+  });
 });
