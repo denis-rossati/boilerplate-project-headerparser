@@ -27,7 +27,7 @@ describe('/GET /api/whoami', () => {
       .end((err, res) => {
         res.body.should.have.property('ipaddress');
         // ngl, I stole it from here: https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
-        expect(res.body.ipaddress).should.match(/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|::1|::ffff:127.0.0.1$/);
+        expect(res.body.ipaddress).to.match(/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|::1|::ffff:127.0.0.1$/);
         done();
       });
   });
@@ -45,7 +45,7 @@ describe('/GET /api/whoami', () => {
     chai.request(server)
       .get('/api/whoami')
       .end((err, res) => {
-        res.body.should.have.property('software');
+        expect(res.body).to.have.property('software');
         done();
       });
   });
