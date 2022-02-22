@@ -31,4 +31,15 @@ describe('/GET /api/whoami', () => {
         done();
       });
   });
+
+  it('should return the language of the request header', (done) => {
+    chai.request(server)
+      .get('/api/whoami')
+      .end((err, res) => {
+        res.body.should.have.property('language');
+        done();
+      });
+  });
+
+  it('should return the ')
 });
