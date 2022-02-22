@@ -46,6 +46,7 @@ describe('/GET /api/whoami', () => {
       .get('/api/whoami')
       .end((err, res) => {
         expect(res.body).to.have.property('software');
+        expect(res.body.software).to.equal('node-superagent/3.8.3');
         done();
       });
   });
