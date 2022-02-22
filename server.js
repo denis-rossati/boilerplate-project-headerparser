@@ -14,7 +14,8 @@ app.get('/', (req, res) => {
 
 app.get('/api/whoami', (req, res) => {
   const ipaddress = req.ip;
-  res.status(200).json({ ipaddress });
+  const language = req.headers['accept-language'].split(',')[0];
+  res.status(200).json({ ipaddress, language });
 });
 
 app.listen(process.env.PORT || 3000);
