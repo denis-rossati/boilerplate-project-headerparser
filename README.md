@@ -12,7 +12,7 @@ You can run either npm start or npm run dev after you download the repo and inst
 
 (or you can run in the chrome, it'll work too :P)
 
-Challenges that I had during the development
+## Challenges that I had during the development
 
 Was not a big challenge, just like the previous challenge. But I have to make some research to find a regex that fits several forms of ip addresses, to match the ip's with the regex, I discovered the libray `chai-match` :)
 
